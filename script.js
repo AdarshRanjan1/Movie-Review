@@ -1,3 +1,13 @@
+window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.style.opacity = 0;
+  
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 2500); // delay for smooth fade-out
+  });
+  
+
 const API_LINK = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=fe2a9cacb42e717dc99045a657ff3c8e&page=1';
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_API = "https://api.themoviedb.org/3/search/movie?&api_key=fe2a9cacb42e717dc99045a657ff3c8e&query=";
@@ -51,7 +61,7 @@ function returnMovies(url){
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    main. innerHTML = '';
+    main.innerHTML = '';
 
     const searchItem = search.value;
 

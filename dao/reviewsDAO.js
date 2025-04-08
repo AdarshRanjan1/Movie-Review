@@ -1,5 +1,5 @@
-const mongodb = require('mongodb');
-const ObjectId = mongodb.ObjectID;
+import mongodb from 'mongodb';
+const ObjectId = mongodb.ObjectId;
 
 let reviews;
 
@@ -45,9 +45,10 @@ class reviewsDAO{
     static async updateReview(reviewId, user, review){
         try{
             const updateResponse = await reviews.updateOne(
-                { _id: ObjectId(reviewId) },
+                { _id: new ObjectId(reviewId) },
                 { $set: { user: user, review: review }}
-            )
+            );
+            return updateResponse; 
         }
         catch(e){
                 console.error(`Unable to update review: ${e}`);
@@ -55,10 +56,10 @@ class reviewsDAO{
         }
     }
 
-    static async deleteResponse(reviewId){
+    static async deleteReview(reviewId){
         try{
             const deleteResponse = await reviews.deleteOne({
-                _id: ObjectId(reviewId),
+                _id: new ObjectId(reviewId),
             })
 
             return deleteResponse;
@@ -83,4 +84,4 @@ class reviewsDAO{
     }
 }
 
-module.exports = reviewsDAO;
+export default reviewsDAO;
