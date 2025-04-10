@@ -2,7 +2,8 @@ const url = new URL(location.href);
 const movieId = url.searchParams.get('id');
 const movieTitle = url.searchParams.get('title');
 
-const API_LINK = 'http://localhost:8000/api/v1/reviews/';
+// const API_LINK = 'http://localhost:8000/api/v1/reviews/';
+const API_LINK = 'https://flickzy-backend.onrender.com/api/v1/reviews/';
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
